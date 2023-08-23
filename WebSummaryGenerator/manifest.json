@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "Web Page Summary",
+  "description": "Generate a summary of the currently viewing web page.",
+  "version": "2.0",
+  "permissions": ["activeTab"],
+  "host_permissions": [
+    "https://*/*", "http://*/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
+  
