@@ -3,7 +3,7 @@
   "name": "Web Page Summary",
   "description": "Generate a summary of the currently viewing web page.",
   "version": "2.0",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "tabs"],
   "host_permissions": [
     "https://*/*", "http://*/*"
   ],

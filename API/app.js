@@ -10,7 +10,32 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.post('/summarize', (req, res) => {
+app.post('/summarizeParagraph', (req, res) => {
+  // We will be coding here
+  const excerpt = req.body; 
+  // console.log(excerpt);
+cohere.init('WjLpipCX12LRxGR25ov1Mehpl3JIaJNmmNfONg72'); // This is your trial API key
+(async () => { 
+  const response = await cohere.summarize({ 
+    text: req.body.excerpt,
+    length: 'medium',
+    format: 'paragraph',
+    model: 'summarize-xlarge',
+    additional_command: '',
+    temperature: 0.3,
+  }); 
+  console.log('Summary:', response.body.summary); 
+
+  if(response.body.summary){
+    res.send(response)
+  }
+
+})();
+
+
+});
+
+app.post('/summarizeBullets', (req, res) => {
   // We will be coding here
   const excerpt = req.body; 
   // console.log(excerpt);
@@ -29,9 +54,7 @@ cohere.init('WjLpipCX12LRxGR25ov1Mehpl3JIaJNmmNfONg72'); // This is your trial A
   if(response.body.summary){
     res.send(response)
   }
-
 })();
-
 
 
 });
