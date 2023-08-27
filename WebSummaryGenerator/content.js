@@ -36,6 +36,6 @@ function generateSummary(choice){
 }))
 .catch(err=> chrome.runtime.sendMessage({
   action: "error", 
-  summary: "Error in loading summary. Check your connection settings or reload the page"
+  summary: "Error in loading summary. Check your connection settings or reload the page."
 }))
 }
